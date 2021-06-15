@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.Add.AddBookFragment">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <!-- TITLE -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_title"
+           style="@style/LargeTextInputLayout">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_title"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/title"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- PUBLISHER -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_publisher"
+           style="@style/LargeTextInputLayout"
+           android:layout_below="@+id/til_title">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_publisher"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/publisher"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- PUBLISHING DATE -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_publishing_date"
+           style="@style/DateTextInputLayout"
+           android:layout_below="@+id/til_publisher">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_publishing_date"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:maxLength="10"
+               android:hint="@string/publishing_date"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- PRICE -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_price"
+           style="@style/LargeTextInputLayout"
+           android:layout_below="@+id/til_publishing_date">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_price"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="number"
+               android:hint="@string/price"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- COMMENT -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_comment"
+           style="@style/LargeTextInputLayout"
+           android:layout_below="@+id/til_price">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_comment"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="@string/comment"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- SHELF NUMBER -->
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/til_shelf_number"
+           style="@style/LargeTextInputLayout"
+           android:layout_below="@+id/til_comment">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/et_shelf_number"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="number"
+               android:hint="@string/shelf_number"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <!-- ADD AUTHORS -->
+       <TextView
+           android:id="@+id/tv_add_author"
+           style="@style/NormalTitle"
+           android:text="@string/authors_information"
+           android:layout_below="@id/til_shelf_number"/>
+
+       <!-- AUTHOR 1-->
+       <RelativeLayout
+           android:id="@+id/add_author_container_1"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tv_add_author"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_author_1"
+               style="@style/SmallTitle"
+               android:text="@string/author_1"/>
+
+           <!-- AUTHOR NAME 1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_fullName_1"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_author_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_fullName_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- AUTHOR DATE OF BIRTH 1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_birthDate_1"
+               style="@style/DateTextInputLayout"
+               android:layout_below="@+id/til_author_fullName_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_birthDate_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:maxLength="10"
+                   android:hint="@string/date_of_birth"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+       <!-- AUTHOR 2 -->
+       <RelativeLayout
+           android:id="@+id/add_author_container_2"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:layout_below="@+id/add_author_container_1"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_author_2"
+               style="@style/SmallTitle"
+               android:text="@string/author_2"/>
+
+           <!-- AUTHOR NAME 2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_fullName_2"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_author_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_fullName_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- AUTHOR DATE OF BIRTH 2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_birthDate_2"
+               style="@style/DateTextInputLayout"
+               android:layout_below="@+id/til_author_fullName_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_birthDate_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:maxLength="10"
+                   android:hint="@string/date_of_birth"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+       <!-- AUTHOR 3 -->
+       <RelativeLayout
+           android:id="@+id/add_author_container_3"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:layout_below="@+id/add_author_container_2"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_author_3"
+               style="@style/SmallTitle"
+               android:text="@string/author_3"/>
+
+           <!-- AUTHOR NAME 3 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_fullName_3"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_author_3">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_fullName_3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- AUTHOR DATE OF BIRTH 3 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_author_birthDate_3"
+               style="@style/DateTextInputLayout"
+               android:layout_below="@+id/til_author_fullName_3">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_author_birthDate_3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:maxLength="10"
+                   android:hint="@string/date_of_birth"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+       <!-- BTN ADD AUTHOR -->
+       <Button
+           android:id="@+id/btn_add_author"
+           style="@style/ButtonSmall"
+           android:text="@string/add_author"
+           android:layout_below="@id/add_author_container_3"
+           android:layout_alignParentEnd="true"/>
+
+
+       <!-- ADD READERS -->
+       <TextView
+           android:id="@+id/tv_add_reader"
+           style="@style/NormalTitle"
+           android:text="@string/readers_information"
+           android:layout_below="@id/btn_add_author"/>
+
+
+       <!-- READER 1-->
+       <RelativeLayout
+           android:id="@+id/add_reader_container_1"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tv_add_reader">
+
+           <TextView
+               android:id="@+id/tv_reader_1"
+               style="@style/SmallTitle"
+               android:text="@string/reader_1"/>
+
+           <!-- READER NAME 1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_fullName_1"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_reader_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_fullName_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER ADDRESS 1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_address_1"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_fullName_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_address_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/address"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER CONTACT 1.1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_1_1"
+               style="@style/MiddleTextInputLayout"
+               android:layout_below="@+id/til_reader_address_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_1_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_1"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- BTN + 1 -->
+           <Button
+               android:id="@+id/btn_add_reader_contact_1"
+               style="@style/RoundButton"
+               android:layout_toEndOf="@id/til_reader_contact_1_1"
+               android:layout_below="@id/til_reader_address_1"/>
+
+           <!-- READER CONTACT 1.2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_1_2"
+               style="@style/MiddleTextInputLayout"
+               android:visibility="gone"
+               android:layout_below="@+id/til_reader_contact_1_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_1_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_2"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- COUNT OF BOOK READINGS 1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_readings_count_1"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_contact_1_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_readings_count_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="number"
+                   android:hint="@string/number_of_book_readings"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+
+       <!-- READER 2 -->
+       <RelativeLayout
+           android:id="@+id/add_reader_container_2"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:layout_below="@+id/add_reader_container_1">
+
+           <TextView
+               android:id="@+id/tv_reader_2"
+               style="@style/SmallTitle"
+               android:text="@string/reader_2"/>
+
+           <!-- READER NAME 2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_fullName_2"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_reader_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_fullName_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER ADDRESS 2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_address_2"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_fullName_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_address_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/address"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER CONTACT 2.1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_2_1"
+               style="@style/MiddleTextInputLayout"
+               android:layout_below="@+id/til_reader_address_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_2_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_1"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- BTN + 2 -->
+           <Button
+               android:id="@+id/btn_add_reader_contact_2"
+               style="@style/RoundButton"
+               android:layout_toEndOf="@id/til_reader_contact_2_1"
+               android:layout_below="@id/til_reader_address_2"/>
+
+           <!-- READER CONTACT 2.2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_2_2"
+               style="@style/MiddleTextInputLayout"
+               android:visibility="gone"
+               android:layout_below="@+id/til_reader_contact_2_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_2_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_2"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- COUNT OF BOOK READINGS 2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_readings_count_2"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_contact_2_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_readings_count_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="number"
+                   android:hint="@string/number_of_book_readings"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+
+       <!-- READER 3 -->
+       <RelativeLayout
+           android:id="@+id/add_reader_container_3"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/add_reader_container_2"
+           android:visibility="gone">
+
+           <TextView
+               android:id="@+id/tv_reader_3"
+               style="@style/SmallTitle"
+               android:text="@string/reader_3"/>
+
+           <!-- READER NAME 3 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_fullName_3"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_reader_3">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_fullName_3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER ADDRESS 3 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_address_3"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_fullName_3">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_address_3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/address"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER CONTACT 3.1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_3_1"
+               style="@style/MiddleTextInputLayout"
+               android:layout_below="@+id/til_reader_address_3">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_3_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_1"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- BTN + 3 -->
+           <Button
+               android:id="@+id/btn_add_reader_contact_3"
+               style="@style/RoundButton"
+               android:layout_toEndOf="@id/til_reader_contact_3_1"
+               android:layout_below="@id/til_reader_address_3"/>
+
+           <!-- READER CONTACT 3.2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_3_2"
+               style="@style/MiddleTextInputLayout"
+               android:visibility="gone"
+               android:layout_below="@+id/til_reader_contact_3_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_3_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_2"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- COUNT OF BOOK READINGS 3 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_readings_count_3"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_contact_3_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_readings_count_3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="number"
+                   android:hint="@string/number_of_book_readings"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+
+       <!-- READER 4 -->
+       <RelativeLayout
+           android:id="@+id/add_reader_container_4"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/add_reader_container_3"
+           android:visibility="gone">
+
+           <TextView
+               android:id="@+id/tv_reader_4"
+               style="@style/SmallTitle"
+               android:text="@string/reader_4"/>
+
+           <!-- READER NAME 4 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_fullName_4"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_reader_4">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_fullName_4"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER ADDRESS 4 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_address_4"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_fullName_4">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_address_4"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/address"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER CONTACT 4.1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_4_1"
+               style="@style/MiddleTextInputLayout"
+               android:layout_below="@+id/til_reader_address_4">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_4_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_1"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- BTN + 4 -->
+           <Button
+               android:id="@+id/btn_add_reader_contact_4"
+               style="@style/RoundButton"
+               android:layout_toEndOf="@id/til_reader_contact_4_1"
+               android:layout_below="@id/til_reader_address_4"/>
+
+           <!-- READER CONTACT 4.2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_4_2"
+               style="@style/MiddleTextInputLayout"
+               android:visibility="gone"
+               android:layout_below="@+id/til_reader_contact_4_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_4_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_2"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- COUNT OF BOOK READINGS 4 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_readings_count_4"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_contact_4_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_readings_count_4"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="number"
+                   android:hint="@string/number_of_book_readings"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+
+       </RelativeLayout>
+
+
+       <!-- READER 5 -->
+       <RelativeLayout
+           android:id="@+id/add_reader_container_5"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/add_reader_container_4"
+           android:visibility="gone">
+
+           <TextView
+               android:id="@+id/tv_reader_5"
+               style="@style/SmallTitle"
+               android:text="@string/reader_5"/>
+
+           <!-- READER NAME 5 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_fullName_5"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/tv_reader_5">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_fullName_5"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/full_name"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER ADDRESS 5 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_address_5"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_fullName_5">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_address_5"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/address"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- READER CONTACT 5.1 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_5_1"
+               style="@style/MiddleTextInputLayout"
+               android:layout_below="@+id/til_reader_address_5">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_5_1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_1"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- BTN + 5 -->
+           <Button
+               android:id="@+id/btn_add_reader_contact_5"
+               style="@style/RoundButton"
+               android:layout_toEndOf="@id/til_reader_contact_5_1"
+               android:layout_below="@id/til_reader_address_5"/>
+
+           <!-- READER CONTACT 5.2 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_reader_contact_5_2"
+               style="@style/MiddleTextInputLayout"
+               android:visibility="gone"
+               android:layout_below="@+id/til_reader_contact_5_1">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_reader_contact_5_2"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="@string/contact_2"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- COUNT OF BOOK READINGS 5 -->
+           <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/til_readings_count_5"
+               style="@style/LargeTextInputLayout"
+               android:layout_below="@+id/til_reader_contact_5_2">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/et_readings_count_5"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="number"
+                   android:hint="@string/number_of_book_readings"/>
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+       </RelativeLayout>
+
+
+       <!-- BTN ADD READER -->
+       <Button
+           android:id="@+id/btn_add_reader"
+           style="@style/ButtonSmall"
+           android:text="@string/add_reader"
+           android:layout_below="@id/add_reader_container_5"
+           android:layout_alignParentEnd="true"/>
+
+
+       <!-- BUTTON ADD -->
+       <Button
+           android:id="@+id/btn_confirm"
+           style="@style/ButtonGeneral"
+           android:text="@string/confirm"
+           android:layout_marginBottom="@dimen/normal_margin"
+           android:layout_marginTop="@dimen/normal_margin"
+           android:layout_below="@id/btn_add_reader"/>
+
+   </RelativeLayout>
+
+</ScrollView>
