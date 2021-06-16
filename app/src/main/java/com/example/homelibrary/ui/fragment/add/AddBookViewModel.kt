@@ -2,9 +2,9 @@ package com.example.homelibrary.ui.fragment.add
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.homelibrary.`object`.remote.Author
-import com.example.homelibrary.`object`.remote.Book
-import com.example.homelibrary.`object`.remote.Reader
+import com.example.homelibrary.`object`.Author
+import com.example.homelibrary.`object`.Book
+import com.example.homelibrary.`object`.Reader
 import com.example.homelibrary.model.AddBookRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

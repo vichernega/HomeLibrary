@@ -2,9 +2,9 @@ package com.example.homelibrary.model
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.homelibrary.`object`.remote.Author
-import com.example.homelibrary.`object`.remote.Book
-import com.example.homelibrary.`object`.remote.Reader
+import com.example.homelibrary.`object`.Author
+import com.example.homelibrary.`object`.Book
+import com.example.homelibrary.`object`.Reader
 import com.example.homelibrary.utilit.COLLECTION_AUTHORS
 import com.example.homelibrary.utilit.COLLECTION_BOOKS
 import com.example.homelibrary.utilit.COLLECTION_READERS

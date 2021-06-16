@@ -3,7 +3,7 @@ package com.example.homelibrary.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.homelibrary.`object`.remote.Book
+import com.example.homelibrary.`object`.Book
 import com.example.homelibrary.databinding.ItemBooksBinding
 
 /** ADAPTER gets the data, adapts it to recyclerView and shows to user*/

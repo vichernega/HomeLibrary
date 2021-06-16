@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.homelibrary.R
-import com.example.homelibrary.`object`.remote.Book
+import com.example.homelibrary.`object`.Book
 import com.example.homelibrary.adapter.BooksRecyclerViewAdapter
 import com.example.homelibrary.databinding.FragmentBooksBinding
 

@@ -41,4 +41,5 @@
     <string name="empty">Empty</string>
     <string name="amount_of_readings">Amount of readings:</string>
     <string name="wait_for_update">Wait for update!</string>
+    <string name="book_borrowings_times">Book borrowings (times):</string>
 </resources>

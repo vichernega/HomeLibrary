@@ -10,6 +10,7 @@ import com.example.homelibrary.R
 import com.example.homelibrary.adapter.ViewPagerAdapter
 import com.example.homelibrary.databinding.ActivityMainBinding
 import com.example.homelibrary.ui.fragment.books.BooksFragment
+import com.example.homelibrary.ui.fragment.readers.ReadersFragment
 import com.example.homelibrary.utilit.APP_ACTIVITY
 import com.example.homelibrary.utilit.hideFragment
 import com.example.homelibrary.utilit.replaceFragmentWithNoBackStack
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.readers -> {
                     setToolbarTitle("Readers")
+                    replaceFragmentWithNoBackStack(ReadersFragment())
                     true
                 }
                 R.id.authors_3_more_books -> {

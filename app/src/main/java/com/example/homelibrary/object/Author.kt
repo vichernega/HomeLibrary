@@ -1,4 +1,4 @@
-package com.example.homelibrary.`object`.remote
+package com.example.homelibrary.`object`
 
 data class Author(
     val fullName: String,
