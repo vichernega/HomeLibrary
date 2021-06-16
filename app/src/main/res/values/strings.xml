@@ -22,20 +22,23 @@
     <string name="authors_information">Authors information</string>
     <string name="readers_information">Readers information</string>
     <string name="confirm">Confirm</string>
-    <string name="author_1">Author 1</string>
     <string name="full_name">Full name</string>
     <string name="date_of_birth">Date of birth</string>
+    <string name="author_1">Author 1</string>
     <string name="author_2">Author 2</string>
+    <string name="author_3">Author 3</string>
     <string name="reader_1">Reader 1</string>
     <string name="reader_2">Reader 2</string>
     <string name="reader_3">Reader 3</string>
     <string name="reader_4">Reader 4</string>
     <string name="reader_5">Reader 5</string>
     <string name="address">Address</string>
-    <string name="contact_1">Contact 1</string>
     <string name="plus">+</string>
+    <string name="contact_1">Contact 1</string>
     <string name="contact_2">Contact 2</string>
     <string name="number_of_book_readings">Number of book readings</string>
     <string name="format_date_input">Format: DD/MM/YYYY</string>
-    <string name="author_3">Author 3</string>
+    <string name="empty">Empty</string>
+    <string name="amount_of_readings">Amount of readings:</string>
+    <string name="wait_for_update">Wait for update!</string>
 </resources>

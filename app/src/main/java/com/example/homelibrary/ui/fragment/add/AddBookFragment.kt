@@ -1,4 +1,4 @@
- package com.example.homelibrary.ui.fragment.Add
+ package com.example.homelibrary.ui.fragment.add
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.homelibrary.databinding.FragmentAddBookBinding
 import com.example.homelibrary.utilit.showToast
 

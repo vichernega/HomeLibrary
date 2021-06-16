@@ -1,4 +1,4 @@
-package com.example.homelibrary.ui.fragment.Add
+package com.example.homelibrary.ui.fragment.add
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
