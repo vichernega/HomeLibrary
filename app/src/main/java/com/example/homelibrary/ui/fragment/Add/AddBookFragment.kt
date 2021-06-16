@@ -1,4 +1,4 @@
-package com.example.homelibrary.ui.fragment.Add
+ package com.example.homelibrary.ui.fragment.Add
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.homelibrary.databinding.FragmentAddBookBinding
+import com.example.homelibrary.utilit.showToast
 
-class AddBookFragment : Fragment() {
+ class AddBookFragment : Fragment() {
 
     private lateinit var binding: FragmentAddBookBinding
     private val viewModel by viewModels<AddBookViewModel>()
@@ -19,13 +21,21 @@ class AddBookFragment : Fragment() {
         binding = FragmentAddBookBinding.inflate(layoutInflater, container, false)
 
         setOnClickListeners()
+        observeViewModel()
 
         return binding.root
     }
 
+    private fun observeViewModel() {
+        viewModel.isCompleteLiveData.observe(viewLifecycleOwner, { complete ->
+            if (complete) {
+                showToast("Saved")
+                cleanViews()
+            }
+        })
+    }
 
-
-    fun setOnClickListeners(){
+    private fun setOnClickListeners(){
         // add authors
         binding.btnAddAuthor.setOnClickListener {
             authorCounter++
@@ -77,12 +87,27 @@ class AddBookFragment : Fragment() {
         // save book
         binding.btnConfirm.setOnClickListener {
             if (checkEditTexts()){
-                // saveBook()
+
+                viewModel.setReadingsAmount(getReadingsList())
+                viewModel.saveBook(
+                    binding.etTitle.text.toString().trim { it <= ' ' }, getAuthorNamesList(),
+                    binding.etPrice.text.toString().trim { it <= ' ' },
+                    binding.etPublisher.text.toString().trim { it <= ' ' },
+                    binding.etPublishingDate.text.toString().trim { it <= ' ' },
+                    binding.etComment.text.toString().trim { it <= ' ' },
+                    binding.etShelfNumber.text.toString().trim { it <= ' ' }
+                )
+
+                readAuthors()       // viewModel creates list of authors
+                viewModel.saveAuthors()
+
+                readReaders()
+                viewModel.saveReaders()
             }
         }
     }
 
-    fun getAuthorsList(): MutableList<String> {
+    private fun getAuthorNamesList(): MutableList<String> {
         val authors = mutableListOf<String>()
 
         authors.add(binding.etAuthorFullName1.text.toString().trim { it <= ' ' })
@@ -96,27 +121,111 @@ class AddBookFragment : Fragment() {
         return authors
     }
 
-    fun getReadingsList(): MutableList<String> {
+    private fun readAuthors(){
+        val bookTitle = binding.etTitle.text.toString().trim { it <= ' ' }
+        viewModel.addAuthor(
+            binding.etAuthorFullName1.text.toString().trim { it <= ' ' },
+            binding.etAuthorBirthDate1.text.toString().trim { it <= ' ' },
+            bookTitle
+        )
+
+        var fullName = binding.etAuthorFullName2.text.toString().trim { it <= ' ' }
+        var birthDate = binding.etAuthorBirthDate2.text.toString().trim { it <= ' ' }
+        if (fullName.isNotEmpty() && birthDate.isNotEmpty()) {
+            viewModel.addAuthor(fullName, birthDate, bookTitle)
+        }
+
+        fullName = binding.etAuthorFullName3.text.toString().trim { it <= ' ' }
+        birthDate = binding.etAuthorBirthDate3.text.toString().trim { it <= ' ' }
+        if (fullName.isNotEmpty() && birthDate.isNotEmpty()) {
+            viewModel.addAuthor(fullName, birthDate, bookTitle)
+        }
+    }
+
+    private fun readReaders(){
+        val bookTitle = binding.etTitle.text.toString().trim { it <= ' ' }
+
+        // first reader
+        var firstContact = binding.etReaderContact11.text.toString().trim { it <= ' ' }
+        var secondContact = binding.etReaderContact12.text.toString().trim { it <= ' ' }
+        var fullName = binding.etReaderFullName1.text.toString().trim { it <= ' ' }
+        var address = binding.etReaderAddress1.text.toString().trim { it <= ' ' }
+        var readings = binding.etReadingsAmount1.text.toString().trim { it <= ' ' }
+
+        viewModel.setContacts(firstContact, secondContact)
+        viewModel.addReader(fullName, address, bookTitle, readings)
+
+        // second reader
+        firstContact = binding.etReaderContact21.text.toString().trim { it <= ' ' }
+        secondContact = binding.etReaderContact22.text.toString().trim { it <= ' ' }
+        fullName = binding.etReaderFullName2.text.toString().trim { it <= ' ' }
+        address = binding.etReaderAddress2.text.toString().trim { it <= ' ' }
+        readings = binding.etReadingsAmount2.text.toString().trim { it <= ' ' }
+
+        if (firstContact.isNotEmpty() && fullName.isNotEmpty() && address.isNotEmpty() && readings.isNotEmpty()) {
+            viewModel.setContacts(firstContact, secondContact)
+            viewModel.addReader(fullName, address, bookTitle, readings)
+        }
+
+        // third reader
+        firstContact = binding.etReaderContact31.text.toString().trim { it <= ' ' }
+        secondContact = binding.etReaderContact32.text.toString().trim { it <= ' ' }
+        fullName = binding.etReaderFullName3.text.toString().trim { it <= ' ' }
+        address = binding.etReaderAddress3.text.toString().trim { it <= ' ' }
+        readings = binding.etReadingsAmount3.text.toString().trim { it <= ' ' }
+
+        if (firstContact.isNotEmpty() && fullName.isNotEmpty() && address.isNotEmpty() && readings.isNotEmpty()) {
+            viewModel.setContacts(firstContact, secondContact)
+            viewModel.addReader(fullName, address, bookTitle, readings)
+        }
+
+        // fourth reader
+        firstContact = binding.etReaderContact41.text.toString().trim { it <= ' ' }
+        secondContact = binding.etReaderContact42.text.toString().trim { it <= ' ' }
+        fullName = binding.etReaderFullName4.text.toString().trim { it <= ' ' }
+        address = binding.etReaderAddress4.text.toString().trim { it <= ' ' }
+        readings = binding.etReadingsAmount4.text.toString().trim { it <= ' ' }
+
+        if (firstContact.isNotEmpty() && fullName.isNotEmpty() && address.isNotEmpty() && readings.isNotEmpty()) {
+            viewModel.setContacts(firstContact, secondContact)
+            viewModel.addReader(fullName, address, bookTitle, readings)
+        }
+
+        // fifth reader
+        firstContact = binding.etReaderContact51.text.toString().trim { it <= ' ' }
+        secondContact = binding.etReaderContact52.text.toString().trim { it <= ' ' }
+        fullName = binding.etReaderFullName5.text.toString().trim { it <= ' ' }
+        address = binding.etReaderAddress5.text.toString().trim { it <= ' ' }
+        readings = binding.etReadingsAmount5.text.toString().trim { it <= ' ' }
+
+        if (firstContact.isNotEmpty() && fullName.isNotEmpty() && address.isNotEmpty() && readings.isNotEmpty()) {
+            viewModel.setContacts(firstContact, secondContact)
+            viewModel.addReader(fullName, address, bookTitle, readings)
+        }
+
+    }
+
+    private fun getReadingsList(): MutableList<String> {
         val readings = mutableListOf<String>()
 
-        readings.add(binding.etReadingsCount1.text.toString().trim { it <= ' ' })
-        if (binding.etReadingsCount2.text.toString().trim { it <= ' ' }.isNotEmpty()) {
-            readings.add(binding.etReadingsCount2.text.toString().trim { it <= ' ' })
+        readings.add(binding.etReadingsAmount1.text.toString().trim { it <= ' ' })
+        if (binding.etReadingsAmount2.text.toString().trim { it <= ' ' }.isNotEmpty()) {
+            readings.add(binding.etReadingsAmount2.text.toString().trim { it <= ' ' })
         }
-        if (binding.etReadingsCount3.text.toString().trim { it <= ' ' }.isNotEmpty()) {
-            readings.add(binding.etReadingsCount3.text.toString().trim { it <= ' ' })
+        if (binding.etReadingsAmount3.text.toString().trim { it <= ' ' }.isNotEmpty()) {
+            readings.add(binding.etReadingsAmount3.text.toString().trim { it <= ' ' })
         }
-        if (binding.etReadingsCount4.text.toString().trim { it <= ' ' }.isNotEmpty()) {
-            readings.add(binding.etReadingsCount4.text.toString().trim { it <= ' ' })
+        if (binding.etReadingsAmount4.text.toString().trim { it <= ' ' }.isNotEmpty()) {
+            readings.add(binding.etReadingsAmount4.text.toString().trim { it <= ' ' })
         }
-        if (binding.etReadingsCount5.text.toString().trim { it <= ' ' }.isNotEmpty()) {
-            readings.add(binding.etReadingsCount5.text.toString().trim { it <= ' ' })
+        if (binding.etReadingsAmount5.text.toString().trim { it <= ' ' }.isNotEmpty()) {
+            readings.add(binding.etReadingsAmount5.text.toString().trim { it <= ' ' })
         }
 
         return readings
     }
 
-    fun checkEditTexts(): Boolean {           // returns true if user info is correct
+    private fun checkEditTexts(): Boolean {           // returns true if user info is correct
         var result = true
         val datePattern = "\\p{Digit}{2}/\\p{Digit}{2}/\\p{Digit}{4}".toRegex()
 
@@ -221,12 +330,58 @@ class AddBookFragment : Fragment() {
             result = false
         }
         // count of readings
-        if (binding.etReadingsCount1.text.toString().trim { it <= ' ' }.isEmpty()){
-            binding.tilReadingsCount1.error = "Fill in!"
+        if (binding.etReadingsAmount1.text.toString().trim { it <= ' ' }.isEmpty()){
+            binding.tilReadingsAmount1.error = "Fill in!"
             result = false
         }
 
         return result
+    }
+
+    private fun cleanViews(){
+        binding.etTitle.setText("")                     // book information
+        binding.etPublisher.setText("")
+        binding.etPublishingDate.setText("")
+        binding.etPrice.setText("")
+        binding.etComment.setText("")
+        binding.etShelfNumber.setText("")
+
+        binding.etAuthorFullName1.setText("")           // author 1
+        binding.etAuthorBirthDate1.setText("")
+        binding.etAuthorFullName2.setText("")           // author 2
+        binding.etAuthorBirthDate2.setText("")
+        binding.etAuthorFullName3.setText("")           // author 3
+        binding.etAuthorBirthDate3.setText("")
+
+        binding.etReaderFullName1.setText("")           // reader 1
+        binding.etReaderAddress1.setText("")
+        binding.etReaderContact11.setText("")
+        binding.etReaderContact12.setText("")
+        binding.etReadingsAmount1.setText("")
+
+        binding.etReaderFullName2.setText("")           // reader 2
+        binding.etReaderAddress2.setText("")
+        binding.etReaderContact21.setText("")
+        binding.etReaderContact22.setText("")
+        binding.etReadingsAmount2.setText("")
+
+        binding.etReaderFullName3.setText("")           // reader 3
+        binding.etReaderAddress3.setText("")
+        binding.etReaderContact31.setText("")
+        binding.etReaderContact32.setText("")
+        binding.etReadingsAmount3.setText("")
+
+        binding.etReaderFullName4.setText("")           // reader 4
+        binding.etReaderAddress4.setText("")
+        binding.etReaderContact41.setText("")
+        binding.etReaderContact42.setText("")
+        binding.etReadingsAmount4.setText("")
+
+        binding.etReaderFullName5.setText("")           // reader 5
+        binding.etReaderAddress5.setText("")
+        binding.etReaderContact51.setText("")
+        binding.etReaderContact52.setText("")
+        binding.etReadingsAmount5.setText("")
     }
 
 }

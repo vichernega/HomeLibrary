@@ -5,4 +5,6 @@ data class Reader(
     val address: String,
     val contacts: List<String>,
     val books: Map<String, String>    // Map<bookTitle, readingsNumber>
-)
+) {
+    constructor(): this("", "", listOf(), mapOf())
+}
