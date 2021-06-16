@@ -43,4 +43,7 @@
     <string name="wait_for_update">Wait for update!</string>
     <string name="book_borrowings_times">Book borrowings (times):</string>
     <string name="books_amount">Books amount:</string>
+    <string name="search_by_book">Search by book</string>
+    <string name="namespace" />
+    <string name="readings">Readings:</string>
 </resources>

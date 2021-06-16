@@ -12,6 +12,7 @@ import com.example.homelibrary.databinding.ActivityMainBinding
 import com.example.homelibrary.ui.fragment.authors3.Authors3Fragment
 import com.example.homelibrary.ui.fragment.books.BooksFragment
 import com.example.homelibrary.ui.fragment.readers.ReadersFragment
+import com.example.homelibrary.ui.fragment.readers3.Readers3Fragment
 import com.example.homelibrary.utilit.APP_ACTIVITY
 import com.example.homelibrary.utilit.hideFragment
 import com.example.homelibrary.utilit.replaceFragment
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.reread_3_more_times -> {
                     setToolbarTitle("Rereading more than 3 times")
+                    replaceFragment(Readers3Fragment())
                     true
                 }
 

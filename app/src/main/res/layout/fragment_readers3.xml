@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.readers3.Readers3Fragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_search"
+        style="@style/MiddleTextInputLayout"
+        android:layout_marginEnd="80dp"
+        app:helperTextEnabled="true"
+        app:helperText="Format: Book Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/search_by_book"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        style="@style/RoundButton"
+        android:text="@string/namespace"
+        android:paddingTop="6dp"
+        android:layout_marginStart="-70dp"
+        android:drawableTop="@drawable/ic_search"
+        android:layout_toEndOf="@+id/til_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/readers3_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/normal_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:isScrollContainer="true"
+        tools:listitem="@layout/item_base"
+        android:layout_below="@+id/til_search"/>
+
+    <TextView
+        android:id="@+id/tv_empty"
+        style="@style/EmptyFragmentText"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/ProgressBar"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
