@@ -8,28 +8,28 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/TitleRecyclerView"
-        tools:text="The Theory of Relativity"
+        tools:text="Henry Brown"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_amount_of_readings_title"
+        android:id="@+id/tv_value_title"
         style="@style/SmallTextRecyclerView"
-        android:text="@string/amount_of_readings"
+        android:text="@string/books_amount"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_amount_of_readings"
+        android:id="@+id/tv_value"
         style="@style/SmallTextRecyclerView"
         tools:text="25"
         android:layout_marginStart="@dimen/small_margin"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintStart_toEndOf="@id/tv_amount_of_readings_title"/>
+        app:layout_constraintStart_toEndOf="@id/tv_value_title"/>
 
     <View
         style="@style/Separator"
-        app:layout_constraintTop_toBottomOf="@+id/tv_amount_of_readings_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

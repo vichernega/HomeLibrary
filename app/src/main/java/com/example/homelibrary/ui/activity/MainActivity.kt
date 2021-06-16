@@ -9,11 +9,12 @@ import androidx.core.view.GravityCompat
 import com.example.homelibrary.R
 import com.example.homelibrary.adapter.ViewPagerAdapter
 import com.example.homelibrary.databinding.ActivityMainBinding
+import com.example.homelibrary.ui.fragment.authors3.Authors3Fragment
 import com.example.homelibrary.ui.fragment.books.BooksFragment
 import com.example.homelibrary.ui.fragment.readers.ReadersFragment
 import com.example.homelibrary.utilit.APP_ACTIVITY
 import com.example.homelibrary.utilit.hideFragment
-import com.example.homelibrary.utilit.replaceFragmentWithNoBackStack
+import com.example.homelibrary.utilit.replaceFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -78,16 +79,17 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.books -> {
                     setToolbarTitle("Books")
-                    replaceFragmentWithNoBackStack(BooksFragment())
+                    replaceFragment(BooksFragment())
                     true
                 }
                 R.id.readers -> {
                     setToolbarTitle("Readers")
-                    replaceFragmentWithNoBackStack(ReadersFragment())
+                    replaceFragment(ReadersFragment())
                     true
                 }
                 R.id.authors_3_more_books -> {
                     setToolbarTitle("Authors with more than 3 books")
+                    replaceFragment(Authors3Fragment())
                     true
                 }
                 R.id.reread_3_more_times -> {

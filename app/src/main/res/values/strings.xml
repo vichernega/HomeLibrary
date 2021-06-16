@@ -9,8 +9,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="books">Books</string>
     <string name="readers">Readers</string>
-    <string name="authors_with_more_than_3_books">Authors with more than 3 books</string>
-    <string name="rereading_more_than_3_times">Rereading more than 3 times</string>
+    <string name="authors_3_more_books">Authors (3+ books)</string>
+    <string name="readers_3_more_readings">Readers (3+ readings)</string>
     <string name="title">Title</string>
     <string name="publisher">Publisher</string>
     <string name="publishing_date">Publishing date</string>
@@ -42,4 +42,5 @@
     <string name="amount_of_readings">Amount of readings:</string>
     <string name="wait_for_update">Wait for update!</string>
     <string name="book_borrowings_times">Book borrowings (times):</string>
+    <string name="books_amount">Books amount:</string>
 </resources>

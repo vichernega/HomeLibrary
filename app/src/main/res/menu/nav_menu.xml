@@ -19,12 +19,12 @@
 
         <item
             android:id="@+id/authors_3_more_books"
-            android:title="@string/authors_with_more_than_3_books"
+            android:title="@string/authors_3_more_books"
             android:icon="@drawable/ic_person"/>
 
         <item
             android:id="@+id/reread_3_more_times"
-            android:title="@string/rereading_more_than_3_times"
+            android:title="@string/readers_3_more_readings"
             android:icon="@drawable/ic_clock"/>
 
     </group>

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:isScrollContainer="true"
-        tools:listitem="@layout/item_readers"/>
+        tools:listitem="@layout/item_base"/>
 
     <TextView
         android:id="@+id/tv_empty"
