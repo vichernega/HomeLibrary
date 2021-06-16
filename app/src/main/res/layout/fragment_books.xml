@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/tv_empty"
         style="@style/EmptyFragmentText"
+        android:visibility="invisible"
         android:layout_centerInParent="true"/>
     
     <ProgressBar

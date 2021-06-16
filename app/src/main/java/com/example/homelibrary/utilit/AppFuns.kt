@@ -4,11 +4,11 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.example.homelibrary.R
 import com.example.homelibrary.ui.activity.MainActivity
 
 // file where different functions are inflated*/
-
 
 fun Fragment.replaceFragment(fragment: Fragment){
     fragmentManager?.beginTransaction()
@@ -35,6 +35,13 @@ fun AppCompatActivity.replaceFragmentWithNoBackStack(fragment: Fragment){
     supportFragmentManager.beginTransaction()
         .replace(R.id.activity_container, fragment)
         .commit()
+}
+
+
+fun AppCompatActivity.hideFragment() {
+    supportFragmentManager.commit {
+        replace(R.id.activity_container, Fragment())
+    }
 }
 
 fun AppCompatActivity.replaceActivity(activity: AppCompatActivity){

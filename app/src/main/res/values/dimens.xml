@@ -3,7 +3,7 @@
 
     <!-- TEXT SIZE -->
     <dimen name="small_text">14sp</dimen>
-    <dimen name="normal_text">16</dimen>
+    <dimen name="normal_text">16sp</dimen>
     <dimen name="middle_text">20sp</dimen>
     <dimen name="large_text">24sp</dimen>
 

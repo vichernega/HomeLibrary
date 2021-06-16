@@ -9,7 +9,10 @@ import androidx.core.view.GravityCompat
 import com.example.homelibrary.R
 import com.example.homelibrary.adapter.ViewPagerAdapter
 import com.example.homelibrary.databinding.ActivityMainBinding
+import com.example.homelibrary.ui.fragment.books.BooksFragment
 import com.example.homelibrary.utilit.APP_ACTIVITY
+import com.example.homelibrary.utilit.hideFragment
+import com.example.homelibrary.utilit.replaceFragmentWithNoBackStack
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -63,6 +66,8 @@ class MainActivity : AppCompatActivity() {
     // on side menu items click
     private fun setOnNavigationItemClick(){
         binding.navView.setNavigationItemSelectedListener { item: MenuItem ->
+            hideAddElements()               // hide viewPager
+            hideFragment()
             binding.drawer.closeDrawers()
             when (item.itemId){
                 R.id.add -> {
@@ -72,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.books -> {
                     setToolbarTitle("Books")
+                    replaceFragmentWithNoBackStack(BooksFragment())
                     true
                 }
                 R.id.readers -> {
@@ -95,12 +101,14 @@ class MainActivity : AppCompatActivity() {
     // make Add elements visible (viewPager for add book/reader fragments)
     private fun showAddElements(){
         binding.viewPager.visibility = View.VISIBLE
+        binding.tabLayout.visibility = View.VISIBLE
         initViewPagerAdapter()
     }
 
     // hide Add elements (viewPager for add book/reader fragments)
     private fun hideAddElements(){
         binding.viewPager.visibility = View.GONE
+        binding.tabLayout.visibility = View.GONE
     }
 
     // init viewPager, add titles
