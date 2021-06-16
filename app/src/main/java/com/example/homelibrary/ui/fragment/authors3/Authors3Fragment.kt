@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.homelibrary.R
 import com.example.homelibrary.`object`.Author
-import com.example.homelibrary.adapter.Authors3RecyclerViewAdapter
+import com.example.homelibrary.ui.adapter.Authors3RecyclerViewAdapter
 import com.example.homelibrary.databinding.FragmentAuthors3Binding
 
 class Authors3Fragment : Fragment() {

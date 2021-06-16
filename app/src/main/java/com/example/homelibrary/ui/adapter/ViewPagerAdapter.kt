@@ -1,4 +1,4 @@
-package com.example.homelibrary.adapter
+package com.example.homelibrary.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

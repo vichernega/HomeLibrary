@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.homelibrary.R
 import com.example.homelibrary.`object`.Reader
-import com.example.homelibrary.adapter.Readers3RecyclerViewAdapter
+import com.example.homelibrary.ui.adapter.Readers3RecyclerViewAdapter
 import com.example.homelibrary.databinding.FragmentReaders3Binding
 import com.example.homelibrary.utilit.showToast
 

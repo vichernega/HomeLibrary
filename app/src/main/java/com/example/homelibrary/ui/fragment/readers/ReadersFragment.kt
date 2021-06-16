@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.homelibrary.`object`.Reader
-import com.example.homelibrary.adapter.ReadersRecyclerViewAdapter
+import com.example.homelibrary.ui.adapter.ReadersRecyclerViewAdapter
 import com.example.homelibrary.databinding.FragmentReadersBinding
 
 class ReadersFragment : Fragment() {

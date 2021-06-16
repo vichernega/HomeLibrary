@@ -7,7 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.homelibrary.R
-import com.example.homelibrary.adapter.ViewPagerAdapter
+import com.example.homelibrary.ui.adapter.ViewPagerAdapter
 import com.example.homelibrary.databinding.ActivityMainBinding
 import com.example.homelibrary.ui.fragment.authors3.Authors3Fragment
 import com.example.homelibrary.ui.fragment.books.BooksFragment
